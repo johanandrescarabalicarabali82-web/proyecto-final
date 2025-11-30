@@ -1,97 +1,91 @@
 # proyecto-final
 Proyecto pedido de comida, Cafeteria de la universidad 
+<div align="center">
 Sistema de Pedidos de Comida en Línea
 Proyecto Formativo – Ingeniería de Software
 
 Autores:
-
 Johan Andrés Carabalí Carabalí
-
 Juan José Balanta Agrono
 
- Descripción del proyecto
+</div>
+<div align="center">
+Descripción del Proyecto
+</div>
 
-Este proyecto consiste en el diseño de un Sistema de Pedidos de Comida en Línea para un Restaurante Local, cuyo objetivo es permitir a los clientes realizar pedidos fácilmente desde su dispositivo, ver el menú, pagar digitalmente y hacer seguimiento del estado del pedido.
+Este proyecto consiste en el desarrollo de un Sistema de Pedidos de Comida en Línea para un restaurante local.
+El sistema permite consultar el menú, realizar pedidos, elegir método de pago, hacer seguimiento al estado del pedido, ver historial, y registrarse/iniciar sesión.
 
- Objetivo general
+<div align="center">
+Objetivo General
+</div>
 
-Desarrollar un sistema de pedidos en línea que permita agilizar el proceso de compra, mejorar la experiencia del usuario y optimizar el flujo de pedidos del restaurante.
+Desarrollar un sistema funcional y escalable que optimice la experiencia del usuario al realizar pedidos y mejore la gestión interna del restaurante.
 
- Requerimientos Funcionales (RF)
-
-El sistema debe permitir registrar usuarios e iniciar sesión.
-
-El usuario debe poder consultar el menú del restaurante.
-
-El sistema debe permitir realizar pedidos.
-
-El usuario podrá seleccionar diferentes métodos de pago (efectivo, tarjeta, transferencia o pago en la app).
-
-El usuario podrá consultar el estado de su pedido (pendiente, en preparación, enviado).
-
-El usuario podrá ver su historial de pedidos.
-
- Requerimientos No Funcionales (RNF)
-
-Extraídos del documento entregado:
-
+<div align="center">
+Requerimientos Funcionales (RF)
+</div> <table> <tr><th>Código</th><th>Requerimiento</th></tr> <tr><td>RF1</td><td>Registrar usuarios e iniciar sesión</td></tr> <tr><td>RF2</td><td>Consultar menú del restaurante</td></tr> <tr><td>RF3</td><td>Realizar pedidos</td></tr> <tr><td>RF4</td><td>Seleccionar método de pago</td></tr> <tr><td>RF5</td><td>Consultar estado del pedido</td></tr> <tr><td>RF6</td><td>Ver historial de pedidos</td></tr> </table>
+<div align="center">
+Requerimientos No Funcionales (RNF)
+</div>
 Rendimiento
 
-Tiempo de respuesta máximo: 2 segundos con 100 usuarios concurrentes.
+Tiempo máximo de respuesta: 2 segundos con 100 usuarios concurrentes.
 
 Seguridad
 
-Contraseñas y datos sensibles cifrados con AES-256.
+Cifrado AES-256 para todas las contraseñas y datos sensibles.
 
 Usabilidad
 
-Interfaz responsive para móvil, tablet y escritorio.
+Interfaz responsive para celular, tablet y escritorio.
 
 Disponibilidad
 
-Disponibilidad mínima mensual: 99.5%.
+Disponibilidad mínima del 99.5% mensual.
 
 Escalabilidad
 
-Hasta 500 usuarios concurrentes con solo 10% de degradación.
+Soporte hasta 500 usuarios concurrentes con una degradación máxima del 10%.
 
- Arquitectura del sistema
+<div align="center">
+Arquitectura del Sistema
+</div>
 
-Arquitectura por capas:
+El sistema está diseñado con Arquitectura por Capas, compuesta por:
 
-Capa de Presentación: InterfazUsuario
+Capa de Presentación   → InterfazUsuario
+Capa de Lógica         → GestorUsuario, GestorMenu, GestorPedidos
+Capa de Datos          → BaseDeDatos
 
-Capa de Lógica: GestorUsuario, GestorMenu, GestorPedidos
+<div align="center">
+Diagramas del Sistema
+</div>
 
-Capa de Datos: BaseDeDatos
-
- Diagramas
-
-Los diagramas se encuentran en la carpeta:
+Los diagramas UML se encuentran en:
 
 /docs/diagramas/
 
 
 Incluye:
 
-Diagrama de casos de uso
+Diagrama de Casos de Uso
 
-Diagrama de clases
+Diagrama de Arquitectura
 
-Diagrama de arquitectura
+Diagrama de Clases
 
-Diagrama de secuencia
+Diagrama de Secuencia
 
- Casos de prueba
+<div align="center">
+Casos de Prueba
+</div>
 
-Ubicados en:
+Los casos de prueba se encuentran en:
 
 /docs/pruebas/
 
 
 Ejemplo:
 
-ID	RF	Entrada	Resultado esperado
-CP01	RF1	Usuario válido	Registro exitoso
-CP02	RF2	Abrir menú	Mostrar platos
-CP03	RF3	Crear pedido	Pedido registrado
+<table> <tr><th>ID</th><th>RF</th><th>Entrada</th><th>Resultado Esperado</th></tr> <tr><td>CP01</td><td>RF1</td><td>Datos válidos</td><td>Usuario registrado</td></tr> <tr><td>CP02</td><td>RF2</td><td>Menú solicitado</td><td>Mostrar lista de platos</td></tr> <tr><td>CP03</td><td>RF3</td><td>Pedido válido</td><td>Pedido registrado</td></tr> <tr><td>CP04</td><td>RF4</td><td>Método seleccionado</td><td>Pago aplicado</td></tr> <tr><td>CP05</td><td>RF5</td><td>Pedido en proceso</td><td>Estado visible</td></tr> </table>
