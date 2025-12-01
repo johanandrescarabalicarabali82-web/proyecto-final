@@ -3,7 +3,7 @@ Sistema de Pedidos de Comida en Línea
 Proyecto Formativo – Ingeniería de Software
 
 Autores:
-Johan Andrés Carabalí Carabalí
+Johan Andrés Carabalí Carabalí-
 Juan José Balanta Agrono
 
 </div>
