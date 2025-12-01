@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafetería de la U</title>
+    <link rel="stylesheet" href="productos.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <h1>Cafetería de la U</h1>
+            <p>Los mejores productos al mejor precio</p>
+        </div>
+        <button onclick="cerrarSesion()" id="loginLink">Cerrar Sesión</button>
+    </header>
+
+    <!-- CARRITO (oculto al inicio) -->
+    <div class="carrito" id="carrito" style="display:none;">
+        <h2>🛒 Carrito</h2>
+        <div id="carrito-items"></div>
+        <p id="total">Total: $0</p>
+
+        <h3>Métodos de pago</h3>
+        <div class="pagos">
+            <p>✔️ Efectivo</p>
+            <p>✔️ Nequi</p>
+            <p>✔️ Daviplata</p>
+            <p>✔️ Transferencia Bancolombia</p>
+        </div>
+        <div class="historial" id="historial">
+           <h2>📜 Historial de pedidos</h2>
+           <div id="lista-historial"> </div>
+       </div>
+       
+       <button class="btn" onclick="finalizarPedido()">Finalizar Pedido</button>
+       <button class="btn" onclick="consultarEstadoPedido()">Consultar estado del pedido</button>
+
+          
+       <!-- MÉTODOS DE PAGO (oculto por defecto) -->
+<div id="metodos-pago" style="display:none; margin-top: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 10px; background: #f9f9f9;">
+    <h3>Métodos de pago</h3>
+
+    <p><strong>Total a pagar:</strong> <span id="pago-total"></span></p>
+
+    <div style="display:flex; gap:15px; margin-top:10px;">
+        <button onclick="pagar('Nequi')" class="btn-pago">Nequi</button>
+        <button onclick="pagar('Daviplata')" class="btn-pago">Daviplata</button>
+        <button onclick="pagar('Mastercard')" class="btn-pago">Mastercard</button>
+        <button onclick="pagar('Bancolombia')"class="btn-pago">Bancolombia</button>
+    </div>
+</div>
+
+
+    </div>
+
+    <h2>Productos Destacados</h2>
+
+    <div class="productos">
+
+        <!-- PRODUCTO 1 -->
+        <div class="producto">
+            <div class="producto-imagen">
+                <img src="imagenes/Empanadas.jpg" alt="Empanadas x3">
+            </div>
+            <div class="producto-info">
+                <h3>Empanadas</h3>
+                <p>Ricas y deliciosas.</p>
+                <div class="precio">5000</div>
+                <button class="btn" onclick="agregarCarrito('Empanadas', 5000, 'imagenes/Empanadas.jpg')">Agregar al carrito</button>
+            </div>
+        </div>
+
+        <!-- PRODUCTO 2 -->
+        <div class="producto">
+            <div class="producto-imagen">
+                <img src="imagenes/dedos.png" alt="Dedos de queso">
+            </div>
+            <div class="producto-info">
+                <h3>Dedos de queso</h3>
+                <p>Calientes y llenos de queso.</p>
+                <div class="precio">2000</div>
+                <button class="btn" onclick="agregarCarrito('Dedos de queso', 2000, 'imagenes/dedos.png')">Agregar al carrito</button>
+            </div>
+        </div>
+
+        <!-- PRODUCTO 3 -->
+        <div class="producto">
+            <div class="producto-imagen">
+                <img src="imagenes/gaseosas.jpg" alt="Gaseosas">
+            </div>
+            <div class="producto-info">
+                <h3>Gaseosas</h3>
+                <p>Postobon, Coca-Cola y Pepsi bien frías.</p>
+                <div class="precio">3000</div>
+                <button class="btn" onclick="agregarCarrito('Gaseosa', 3000, 'imagenes/gaseosas.jpg')">Agregar al carrito</button>
+            </div>
+        </div>
+
+        <!-- PRODUCTO 4 -->
+        <div class="producto">
+            <div class="producto-imagen">
+                <img src="imagenes/Perros-calientes.jpg" alt="Perro-calientes">
+            </div>
+            <div class="producto-info">
+                <h3>Perro caliente</h3>
+                <p>Buen sabor y calidad.</p>
+                <div class="precio">6500</div>
+                <button class="btn" onclick="agregarCarrito('Perro caliente', 6500, 'imagenes/Perros-calientes.jpg')">Agregar al carrito</button>
+            </div>
+        </div>
+
+        <!-- PRODUCTO 5 -->
+        <div class="producto">
+            <div class="producto-imagen">
+                <img src="imagenes/Hamburgesas.jpg" alt="Hamburguesa">
+            </div>
+            <div class="producto-info">
+                <h3>Hamburgesa</h3>
+                <p>Deliciosa y jugosa.</p>
+                <div class="precio">10000</div>
+                <button class="btn" onclick="agregarCarrito('Hamburguesa', 10000, 'imagenes/Hamburguesas.jpg')">Agregar al carrito</button>
+            </div>
+        </div>
+
+        <!-- PRODUCTO 6 -->
+        <div class="producto">
+            <div class="producto-imagen">
+                <img src="imagenes/Jugos-naturales.jpg" alt="Jugos-naturales">
+            </div>
+            <div class="producto-info">
+                <h3>Jugos naturales</h3>
+                <p>Refrescantes y 100% naturales.</p>
+                <div class="precio">2500</div>
+                <button class="btn" onclick="agregarCarrito('Jugo Natural', 2500, 'imagenes/Jugos-naturales.jpg')">Agregar al carrito</button>
+            </div>
+        </div>
+
+        <!-- PRODUCTO 7 -->
+        <div class="producto">
+            <div class="producto-imagen">
+                <img src="imagenes/salchipapas.jpg" alt="Salchipapas">
+            </div>
+            <div class="producto-info">
+                <h3>Salchipapas</h3>
+                <p>En su punto.</p>
+                <div class="precio">7000</div>
+                <button class="btn" onclick="agregarCarrito('Salchipapas', 7000, 'imagenes/salchipapas.jpg')">Agregar al carrito</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+        <h2>¿Qué esperas para comprar?</h2>
+        <p>Aprovecha nuestras ofertas especiales por tiempo limitado.</p>
+        <a href="#" class="btn">Ver todos los productos</a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <h3>Cafetería de la U</h3>
+            <p>El mejor sabor para los estudiantes</p>
+
+            <div class="redes-sociales">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">TikTok</a>
+                <a href="#">WhatsApp</a>
+            </div>
+
+            <p>&copy; 2024 Cafetería de la U. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script src="productos.js "></script>
+</body>
+
+
+<div class="metodos-pago" id="metodosPago">
+    <h2>Métodos de Pago</h2>
+
+<div class="pago-opcion" onclick="pagar('Mastercard')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg">
+    <p>Tarjeta Mastercard</p>
+</div>
+
+<div class="pago-opcion" onclick="pagar('Nequi')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Logo_nequi.png">
+    <p>Nequi</p>
+</div>
+
+<div class="pago-opcion" onclick="pagar('Davivienda')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Davivienda_logo.png">
+    <p>Davivienda</p>
+</div>
+
+<div class="pago-opcion" onclick="pagar('Bancolombia')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Bancolombia_logo.svg">
+    <p>Bancolombia</p>
+</div>
+
+   
+</div>
+
+<!-- Botón WhatsApp -->
+<a href="https://wa.me/573122429061" class="btn-float whatsapp" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
+<!-- Botón Instagram -->
+<a href="https://www.instagram.com/anotaaisorocaba/" class="btn-float instagram" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Instagram.svg" alt="Instagram">
+</a>
+
+</html>
+
+
